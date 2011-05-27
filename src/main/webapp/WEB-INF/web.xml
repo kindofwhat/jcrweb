@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+    <display-name>Vaadin Web Application</display-name>
+    <context-param>
+        <description>Vaadin production mode</description>
+        <param-name>productionMode</param-name>
+        <param-value>false</param-value>
+    </context-param>
+        <servlet>
+        <servlet-name>GroovyVaadin</servlet-name>
+        <servlet-class>org.groovyvaadin.GroovyScriptEngineApplicationServlet</servlet-class>
+        <init-param>
+            <param-name>application</param-name>
+            <param-value>ch.bluepenguin.JcrWebApplication</param-value>
+        </init-param>   
+        <init-param>
+            <param-name>scriptsPath</param-name>
+            <param-value>
+<!-- 
+            file:///home/christian/eclipsews/vaadinbuilder/src/main/groovy/
+            file:///home/christian/eclipsews/jcrweb/src/main/groovy/
+ -->
+ 	../jcrweb/src/main/groovy;../vaadinbuilder/src/main/groovy
+             </param-value>
+        </init-param>   
+        
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GroovyVaadin</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+        <!-- 
+ -->
+        <!-- 
+
+    <servlet>
+          <servlet-name>Vaadin Application Servlet</servlet-name>
+          <servlet-class>com.vaadin.terminal.gwt.server.ApplicationServlet</servlet-class>
+          <init-param>
+              <description>Vaadin application class to start</description>
+              <param-name>application</param-name>
+              <param-value>ch.bluepenguin.JcrWebApplication</param-value>
+          </init-param>
+      </servlet>
+             <servlet-mapping>
+                 <servlet-name>Vaadin Application Servlet</servlet-name>
+                 <url-pattern>/*</url-pattern>
+             </servlet-mapping>
+       -->
+
+    
+</web-app>
