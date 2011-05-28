@@ -23,5 +23,31 @@ Makes use of the vaadinbuilder found unter https://github.com/kindofwhat/vaadinb
 
 ==> this gives you a war-file in jcrweb/target/ which then can be lauchned
 
+### The GroovyScriptEngineApplicationServlet
+The GroovyScriptEngineApplicationServlet allows to declare some file system locations
+where Groovy Files are automatically reloaded. The scriptsPath param is a list
+of paths (separated by ; or newline)
+
+Example:
+
+    <servlet>
+        <servlet-name>GroovyVaadin</servlet-name>
+        <servlet-class>org.groovyvaadin.GroovyScriptEngineApplicationServlet</servlet-class>
+        <init-param>
+            <param-name>application</param-name>
+            <param-value>ch.bluepenguin.JcrWebApplication</param-value>
+        </init-param>   
+        <init-param>
+            <param-name>scriptsPath</param-name>
+            <param-value>
+    	../jcrweb/src/main/groovy;../vaadinbuilder/src/main/groovy
+             </param-value>
+        </init-param>   
+        
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GroovyVaadin</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
 
 
